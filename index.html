@@ -1,39 +1,66 @@
 <html>
+
 <head>
     <title>Test Project</title>
-      <style>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Mali');
+
+        li:hover {
+            background-color: aquamarine;
+            font-size: 1.4em;
+        }
+
+        img {
+            max-width: 700px
+        }
+
         .red {
             background-color: #eee;
-            color:brown;
+            color: brown;
             text-decoration: line-through;
             text-align: center;
         }
-        .purple{
-              background-color: #282c34;
-              display: flex;
-              flex-direction: column;
-              align-items: center;
-              justify-content: center;
-              font-size: calc(10px + 2vmin);
-              color: white;
-          }
-        .blue{
-             background-color: blue;
-            color:aliceblue;
+
+        .purple {
+            background-color: #282c34;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+            font-family: 'Mali', cursive;
         }
-        .test{
-            margin:10px;
+
+        .blue {
+            background-color: blue;
+            color: aliceblue;
+        }
+
+        .test {
+            margin: 10px;
             padding: 10px;
             border: 1px solid black;
         }
+
+        .selection {
+            background-color: #282c34;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+            font-family: 'Mali', cursive;
+        }
     </style>
-    </head>
-    <img id="myImg" src="https://i.imgur.com/D6RmHvt.jpg"><br/>
-    <h1>Waifu image requestor</h1>
-    <p>Please select a type and a category then hit submit to generate an URL for a waifu image</p>
-    
-    <body class='purple'>
-        <!--<form onSubmit="return sendForm()">
+</head>
+<img id="myImg" src="https://i.imgur.com/D6RmHvt.jpg"><br>
+<h1>Waifu image requestor</h1>
+<p>Please select a type and a category then hit submit to generate an URL for a waifu image</p>
+
+<body class='purple'>
+    <!--<form onSubmit="return sendForm()">
     <fieldset>
     <legend>Submit the following for a result</legend>
     <label for="newItem">Category:</label>
@@ -51,99 +78,106 @@
             </fieldset>
          </form>-->
 
-    <legend>Submit the following for a result</legend>
-    <label for="newItem">Category:</label>
-    <input type="text" id="newItem" name="newItem" placeholder="waifu/neko">
-    <div>
+    <legend>Selections:</legend>
+    <div class='selection'>
         <label for="newItem2">Type:</label>
-        <input type="text" id="newItem2" name="newItem2" list="list1" placeholder="SFW/NSFW">
-        <datalist id="list1">
+        <select id="newItem2">
             <option value="SFW">SFW</option>
             <option value="NSFW">NSFW</option>
-        </datalist>
+        </select>
     </div>
+    <label for="newItem">Category:</label>
+    <input type="text" id="newItem" name="newItem" placeholder="waifu/neko">
     <input id="mySubmitButton" name="submit" type="submit" onclick="return onMySubmitButtonClicked()" />
-    <ul>
-        <li>example: https://api.waifu.pics/sfw/waifu</li>
-    </ul>   
-  
-<script type="application/javascript">
-    let waifuApi = 'https://api.waifu.pics/';
+    <ul>Click on the URL to cross out and remove items
 
-    var inputSelect = document.querySelector('input[name="newItem"]');
-    inputSelect.addEventListener('keypress', function(event){
-        if(event.keyCode === 13){
-            addNew();
-        }                         
-    })
-   
-    var mainList = document.querySelector('ul');
-    var allListItems = document.querySelectorAll('li');
-    for (var x=0;x<allListItems.length;x++){
-        allListItems[x].addEventListener('click', myList);
-    }
-   
-    
-    function myList(){
-        var temp = this.classList.toggle('red');
-        if(temp){
-            var span = document.createElement('span');
-            span.textContent = ' x ';
-            span.addEventListener('click', function(){
-                this.parentElement.remove();
-                
-            })
-            this.appendChild(span);
-        }else{
-            this.getElementsByTagName('span')[0].remove();
+    </ul>
+
+    <script type="application/javascript">
+        let waifuApi = 'https://api.waifu.pics/';
+
+        var inputSelect = document.querySelector('input[name="newItem"]');
+        inputSelect.addEventListener('keypress', function (event) {
+            if (event.keyCode === 13) {
+                onMySubmitButtonClicked();
+            }
+        })
+
+        var mainList = document.querySelector('ul');
+        var allListItems = document.querySelectorAll('li');
+        for (var x = 0; x < allListItems.length; x++) {
+            allListItems[x].addEventListener('click', myList);
         }
-        
-    }
-    
-    
-    function addNew(){
-        var li = document.createElement('li');    //create new elemnts then be added to the list of existing list item
-        li.addEventListener('click',myList);
-        var textValue = inputSelect.value;
-        inputSelect.value = '';
-        var tempNode = document.createTextNode(textValue);
-        li.appendChild(tempNode);
-        mainList.appendChild(li);
-    }
-    
 
-    function onMySubmitButtonClicked() {
-        var typeValue = document.getElementById('newItem').value;
-        var categoryValue = document.getElementById('newItem2').value;
-        var httpRequest = waifuApi + categoryValue.toLowerCase() + '/' + typeValue;
-        var httpResponse = httpGet(httpRequest);
-        var jsonHttpResponse = JSON.parse(httpResponse);
-        
-        // create new elements and add to list
-        var li = document.createElement('li');
-        var tempNode = document.createTextNode(jsonHttpResponse.url);
-        li.appendChild(tempNode);
-        mainList.appendChild(li);
 
-        // set myImg to img from api
-        document.querySelector('#myImg').src = jsonHttpResponse.url;
-    }
+        function myList() {
+            var temp = this.classList.toggle('red');
+            if (temp) {
+                var span = document.createElement('span');
+                span.textContent = ' x ';
+                span.addEventListener('click', function () {
+                    this.parentElement.remove();
 
-    function httpGet(theUrl) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-        xmlHttp.send( null );
-        return xmlHttp.responseText;
-    }
+                })
+                this.appendChild(span);
+            } else {
+                this.getElementsByTagName('span')[0].remove();
+            }
 
-    function sendForm() {
-        var typeValue = document.getElementById('newItem').value;
-        var categoryValue = document.getElementById('newItem2').value;
-        var inputLink = "https://api.waifu.pics/'document.getElementById('newItem').value'/'document.getElementById('newItem2').value'"
-        var outputLink = inputLink;
-                console.log('newItem');
-                console.log('newItem2');
         }
-        </script>
-   </body>
+
+
+        function addNew() {
+            var li = document.createElement('li');    //create new elemnts then be added to the list of existing list item
+            li.addEventListener('click', myList);
+            var textValue = inputSelect.value;
+            inputSelect.value = '';
+            var tempNode = document.createTextNode(textValue);
+            li.appendChild(tempNode);
+            mainList.appendChild(li);
+        }
+
+
+        function onMySubmitButtonClicked() {
+            var typeValue = document.getElementById('newItem').value;
+            var categoryValue = document.getElementById('newItem2').value;
+            if (typeValue === "waifu" || typeValue === "neko") {
+                var httpRequest = waifuApi + categoryValue.toLowerCase() + '/' + typeValue;
+                var httpResponse = httpGet(httpRequest);
+                var jsonHttpResponse = JSON.parse(httpResponse);
+            } else {
+                alert("Please enter waifu or neko!");
+            }
+
+            // create new elements and add to list
+            var li = document.createElement('li');
+            li.addEventListener('click', myList);
+            var tempNode = document.createTextNode(jsonHttpResponse.url);
+            li.appendChild(tempNode);
+            mainList.appendChild(li);
+
+            // set myImg to img from api
+            document.querySelector('#myImg').src = jsonHttpResponse.url;
+            myList();
+
+        }
+
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false); // false for synchronous request
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+
+        /* function sendForm() {
+            var typeValue = document.getElementById('newItem').value;
+            var categoryValue = document.getElementById('newItem2').value;
+            var inputLink = "https://api.waifu.pics/'document.getElementById('newItem').value'/'document.getElementById('newItem2').value'"
+            var outputLink = inputLink;
+            console.log('newItem');
+            console.log('newItem2');
+        } */
+    </script>
+</body>
+
 </html>
