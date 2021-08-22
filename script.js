@@ -15,7 +15,7 @@ const newYearTime = new Date('August 31 2021 20:00:00');
 
 // update countdown timer
 function updateCountdown() {
-    const currentTime = new Date();
+    const currentTime = getTimezoneOffset();
     const diff = newYearTime - currentTime;
 
     const d = Math.floor(diff / 1000 / 60 / 60 / 24);
