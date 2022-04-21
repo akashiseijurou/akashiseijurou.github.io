@@ -7,8 +7,8 @@ const closeBtn = document.getElementById('close');
 
 const data = [
     {
-        image: './img/ba.jpg',
-        text: "Raiden Shogun"
+        image: 'https://preppykitchen.com/wp-content/uploads/2019/06/Chocolate-cake-recipe-1200a.jpg',
+        text: "Cake"
     },
     {
         image: './img/ke.jpg',
