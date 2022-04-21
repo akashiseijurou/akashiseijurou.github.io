@@ -11,48 +11,48 @@ const data = [
         text: "Cake"
     },
     {
-        image: './img/ke.jpg',
-        text: "Keqing"
+        image: 'https://s3-us-west-2.amazonaws.com/courses-images-archive-read-only/wp-content/uploads/sites/939/2015/09/26001731/Computer.png',
+        text: "Computer"
     },
     {
-        image: './img/ghjg.jpg',
-        text: "Eula"
+        image: 'https://media.cntraveler.com/photos/5b2c06854c18411aa3e9f5d3/16:9/w_2560,c_limit/High-Park_GettyImages-171589236.jpg',
+        text: "Park"
     },
     {
-        image: './img/gn.jpg',
-        text: "Ganyu"
+        image: 'https://static.onecms.io/wp-content/uploads/sites/9/2021/06/22/different-types-of-tea-FT-BLOG0621.jpg',
+        text: "Tea"
     },
     {
-        image: './img/aa.jpeg',
-        text: "girl0"
+        image: 'https://www.atablefullofjoy.com/wp-content/uploads/2018/06/Hamburger-Sliders-Featured-500x500.jpg',
+        text: "Hamburger"
     },
     {
-        image: './img/cc.jpg',
-        text: "miku"
+        image: 'https://assets.themortgagereports.com/wp-content/uploads/2020/12/Buy-A-Home-With-Low-No-Down-Payment-First-Time-Home-Buyer.jpg',
+        text: "House"
     },
     {
-        image: './img/dd.jpeg',
-        text: "girl1"
+        image: 'https://entrepreneurship.babson.edu/wp-content/uploads/2020/10/Movie-1200-630.jpg',
+        text: "Theater"
     },
     {
-        image: './img/ee.jpg',
-        text: "fumi"
+        image: 'https://upload.wikimedia.org/wikipedia/commons/1/1a/Times_Square_New_York_USA.jpg',
+        text: "Time Square"
     },
     {
-        image: './img/ff.jpeg',
-        text: "girl"
+        image: 'https://cdn.britannica.com/77/114477-050-4191357E/Plane-on-takeoff-from-the-Amsterdam-Airport-international-airport.jpg',
+        text: "Airplane"
     },
     {
-        image: './img/kk.jpg',
-        text: "Kokomi"
+        image: 'https://www.corriecooks.com/wp-content/uploads/2021/05/french-fries-instant-pot.jpg',
+        text: "Fries"
     },
     {
-        image: './img/kklk.jpg',
-        text: "Ayaka"
+        image: 'https://cdn.britannica.com/17/196817-050-6A15DAC3/vegetables.jpg',
+        text: "Vegetable"
     },
     {
-        image: './img/rr.jpg',
-        text: "Rider"
+        image: 'https://atlantis.nyc3.digitaloceanspaces.com/media/legacy/atlantis/Things_To_Do/Water_Park/Beaches/Hero/Experiences_Beach.jpg',
+        text: "Beach"
     }
 ];
 
