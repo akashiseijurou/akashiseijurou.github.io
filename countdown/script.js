@@ -8,7 +8,7 @@ const loading = document.getElementById('loading');
 
 const currentYear = new Date().getFullYear();
 
-const newYearTime = new Date('December 03 2021 02:00:00');
+const newYearTime = new Date('January 01 2023 00:00:00');
 
 // set background year
 // year.innerText = currentYear;
