@@ -5,7 +5,7 @@
 }
 
 body {
-    background: #224941 url('.bgi.jpg') no-repeat center center/cover;
+    background: #224941 url('./bgi.jpg') no-repeat center center/cover;
     min-height: 100vh;
     overflow: hidden;
     display: flex;
