@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Fetch</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="disclaimer">DISCLAIMER: This is purely for self improvement purpose for learning web 
+        development related skills.
+        This is not providing any services. Therefore, please do not share this link.
+    </div>
+    <main>
+        <div class="box">
+            <h4>Name:</h4>
+            <p id="name" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Vision:</h4>
+            <p id="vision" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Weapon:</h4>
+            <p id="weapon" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Nation:</h4>
+            <p id="nation" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Birthday:</h4>
+            <p id="bday" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Passive Talents:</h4>
+            <p id="passive" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Rarity:</h4>
+            <p id="rarity" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Title:</h4>
+            <p id="title" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Skill Talents:</h4>
+            <p id="skill" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Constellations:
+            </h4>
+            <p id="constellation" class="info"></p>
+            <p id="constellations" class="info">...</p>
+        </div>
+
+        <div class="box">
+            <h4>Portrait:</h4>
+            <img id="picture" src="">
+        </div>
+
+    </main>
+
+    <select id="selectChara" onchange="selectName(event)">
+        <option>Choose a character</option>
+    </select>
+
+    <input id="charName" type="text" name="charName" class="charName" onfocus="this.value=''"
+        placeholder="enter a character name">
+
+    <div class="home" id="home">
+        <h2>
+            <a href="">
+                Return home
+            </a>
+        </h2>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- <table style="width:50%">
+        <tr>
+            <th>
+                <strong>Name:</strong>
+                <div id="name">...</div>
+            </th>
+            <th>
+                <strong>Vision:</strong>
+                <div id="vision">...</div>
+            </th>
+            <th>
+                <strong>Weapon:</strong>
+                <div id="weapon">...</div>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <strong>Nation:</strong>
+                <div id="nation">...</div>
+            </th>
+            <th>
+                <strong>Birthday:</strong>
+                <div id="bday">...</div>
+            </th>
+            <th>
+                <strong>Constellation:</strong>
+                <div id="constellation">...</div>
+            </th>
+
+        </tr>
+        <tr>
+            <th>
+                <strong>Passive Talents:</strong>
+                <div id="passive">...</div>
+            </th>
+            <th>
+                <strong>Rarity:</strong>
+                <div id="rarity">...</div>
+            </th>
+            <th>
+                <strong>Title:</strong>
+                <div id="title">...</div>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <strong>Skill Talents:</strong>
+                <div id="skill">...</div>
+            </th>
+            <th>
+                <strong>Constellations: <div id="constellation"></div></strong>
+                <div id="constellations">...</div>
+            </th>
+            <th>
+                <strong>Image:</strong>
+                <div><img id="picture" src=""></div>
+            </th>
+        </tr>
+    </table> -->
+
+
+
+<!-- <input type="text" id="charName" name="charName" class="charName" onfocus="this.value=''"
+        placeholder="character name"> -->
+<!-- <select name="" onchange="selectName(event)">
+        <option disabled selected>--Mondstadt--</option>
+        <option value="Albedo">Albedo</option>
+        <option value="Amber">Amber</option>
+        <option value="Barbara">Barbara</option>
+        <option value="Bennett">Bennett</option>
+        <option value="Diluc">Diluc</option>
+        <option value="Diona">Diona</option>
+        <option value="Eula">Eula</option>
+        <option value="Fischl">Fischl</option>
+        <option value="Jean">Jean</option>
+        <option value="Kaeya">Kaeya</option>
+        <option value="Klee">Klee</option>
+        <option value="Lisa">Lisa</option>
+        <option value="Mona">Mona</option>
+        <option value="Noelle">Noelle</option>
+        <option value="Razor">Razor</option>
+        <option value="Rosaria">Rosaria</option>
+        <option value="Sucrose">Sucrose</option>
+        <option value="Traveler-Anemo">Traveler-Anemo</option>
+        <option value="Venti">Venti</option>
+        <option disabled selected>------Liyue------</option>
+        <option value="Beidou">Beidou</option>
+        <option value="Chongyun">Chongyun</option>
+        <option value="Ganyu">Ganyu</option>
+        <option value="Hu-Tao">Hu-Tao</option>
+        <option value="Kazuha">Kazuha</option>
+        <option value="Keqing">Keqing</option>
+        <option value="Ningguang">Ningguang</option>
+        <option value="QiQi">QiQi</option>
+        <option value="Shenhe">Shenhe</option>
+        <option value="Tartaglia">Tartaglia</option>
+        <option value="Traveler-Geo">Traveler-Geo</option>
+        <option value="Xiangling">Xiangling</option>
+        <option value="Xiao">Xiao</option>
+        <option value="Xingqiu">Xingqiu</option>
+        <option value="Xinyan">Xinyan</option>
+        <option value="Yanfei">Yanfei</option>
+        <option value="Yun-Jin">Yun-Jin</option>
+        <option value="Zhongli">Zhongli</option>
+        <option disabled selected>----Inazuma----</option>
+        <option value="Arataki-Itto">Arataki-Itto</option>
+        <option value="Ayaka">Ayaka</option>
+        <option value="Gorou">Gorou</option>
+        <option value="Kokomi">Kokomi</option>
+        <option value="Raiden">Raiden</option>
+        <option value="Sara">Sara</option>
+        <option value="Sayu">Sayu</option>
+        <option value="Thoma">Thoma</option>
+        <option value="Traveler-Electro">Traveler-Electro</option>
+        <option value="Traveler-Geo">Traveler-Geo</option>
+        <option value="Yoimiya">Yoimiya</option>
+    </select> -->
