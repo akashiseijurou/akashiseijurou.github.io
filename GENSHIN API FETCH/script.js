@@ -2,6 +2,7 @@ const name = document.getElementById("name");
 const vision = document.getElementById("vision");
 const weapon = document.getElementById("weapon");
 const nation = document.getElementById("nation");
+const affiliation = document.getElementById("affiliation");
 const bday = document.getElementById("bday");
 const constellation = document.getElementById("constellation");
 const passive = document.getElementById("passive");
@@ -49,6 +50,7 @@ function loadChar(e) {
     vision.innerHTML = '<em>Loading...</em>';
     weapon.innerHTML = '<em>Loading...</em>';
     nation.innerHTML = '<em>Loading...</em>';
+    affiliation.innerHTML = '<em>Loading...</em>';
     bday.innerHTML = '<em>Loading...</em>';
     constellation.innerHTML = '<em>Loading...</em>';
     passive.innerHTML = '<em>Loading...</em>';
@@ -65,25 +67,40 @@ function loadChar(e) {
     function getInfo() {
         const charN = charName.value.toLowerCase();
         const imgLink = `https://api.genshin.dev/characters/${charN}/portrait.png`;
-        fetch(`https://api.genshin.dev/characters/${charN}/`)
+        let charaData = fetch(`https://api.genshin.dev/characters/${charN}/`)
             .then(response => response.json())
             .then(character => {
                 name.innerHTML = character['name'];
                 validNameChecker();
                 vision.innerHTML = character['vision'];
+
                 weapon.innerHTML = character['weapon'];
+
                 nation.innerHTML = character['nation'];
+
+                affiliation.innerHTML = character['affiliation'];
+
                 bday.innerHTML = character['birthday'].substr(5);
+
                 constellation.innerHTML = character['constellation'];
+
                 passive.innerHTML =
                     "1. " + character['passiveTalents'][0].name + `<br>` +
                     "2. " + character['passiveTalents'][1].name + `<br>` +
                     "3. " + character['passiveTalents'][2].name;
-                rarity.innerHTML = character['rarity'] + " stars";
+
+                if (character['rarity'] === 4) {
+                    character['rarity'] = "★★★★"
+                } else if (character['rarity'] === 5) {
+                    character['rarity'] = "★★★★★"
+                }
+                rarity.innerHTML = character['rarity'];
+
                 skill.innerHTML =
                     "1. " + character['skillTalents'][0].name + `<br>` +
                     "2. " + character['skillTalents'][1].name + `<br>` +
                     "3. " + character['skillTalents'][2].name;
+
                 constellations.innerHTML =
                     "1. " + character['constellations'][0].name + `<br>` +
                     "2. " + character['constellations'][1].name + `<br>` +
@@ -91,12 +108,14 @@ function loadChar(e) {
                     "4. " + character['constellations'][3].name + `<br>` +
                     "5. " + character['constellations'][4].name + `<br>` +
                     "6. " + character['constellations'][5].name;
+
                 title.innerHTML = character['title'];
+
                 changeTitle();
                 document.getElementById("picture").src = imgLink;
-                console.log(character);
             });
     };
+    
 };
 
 openImg.addEventListener('click', () =>
@@ -110,6 +129,7 @@ function validNameChecker() {
         vision.innerHTML = '<em>...</em>';
         weapon.innerHTML = '<em>...</em>';
         nation.innerHTML = '<em>...</em>';
+        affiliation.innerHTML = '<em>...</em>';
         bday.innerHTML = '<em>...</em>';
         constellation.innerHTML = '<em>...</em>';
         passive.innerHTML = '<em>...</em>';
@@ -118,7 +138,6 @@ function validNameChecker() {
         skill.innerHTML = '<em>...</em>';
         constellations.innerHTML = '<em>...</em>';
         title.innerHTML = '<em>...</em>';
-        console.log("test");
     };
 };
 
